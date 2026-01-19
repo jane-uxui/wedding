@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Welcome joo</title>
+    
+    <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-auth-compat.js"></script>
+    <meta property="og:url" content="https://jane-uxui.github.io/Jane/MCard/">
+    <meta property="og:title" content="쭈와 하람의 결혼에 초대합니다">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://raw.githubusercontent.com/jane-uxui/Jane/e0e41f8898db125ce2499955546cece92f4d0b1d/MCard/img/Intersect.png">
+    <meta property="og:description" content="우리의 결혼식에 소중한 분들을 초대합니다">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Nanum+Gothic&family=Noto+Serif+KR:wght@200..900&family=Qwitcher+Grypen:wght@400;700&display=swap" rel="stylesheet">
+
+    
+  <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-auth-compat.js"></script>
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=3a594397177448c26c0db16d04969166"></script>
+  <link rel="stylesheet" href="style.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  </head>
+
+  <body>
+    <div class="body_wrap">
+      <div class="kv">
+        <div class="img"></div>
+        <video src="http://w.theirmood.com/src/wdd/particle/snow.mp4" loop autoplay muted playsinline></video>
+        <div class="txt_wrap"> 
+          <h1>Getting</h1><h1>married</h1>
+          <div class="date">
+            <p>17th</p>
+            <p>JAN</p>
+            <p>2026</p>
+          </div>
+        </div>
+      </div>
+      <section id="invite">
+        <span>INVITATION</span>
+        <h2>소중한 분들을 초대합니다</h2>
+        <p>저절로 웃음이 났다.<br>
+          웃는 남자를 보고 여자도 웃었다. <br>
+          마음에 꽃이 피는것 같았다.<br>
+          정말로 봄이었다.
+        </p>
+        <p>정현주 &lt;다시, 사랑&gt; 중에서 </p>
+        <p>둘이 함께 맞이하는 6번째 봄, <br>
+          저희 두 사람 결혼합니다. <br>
+          앞으로 맞이할 저희의 봄날을 축복해주세요.</p>
+        <div class="img_wrap">
+          <img src="img/invitation.png" alt="">
+        </div>
+        
+        <div class="call_wrap">
+          <p>우병수 · 김정애 <span>의 딸</span>우주<br>
+        김병철 · 이수영 <span>의 아들</span>김하람</p>
+        <button id="call">연락하기</button>
+        </div>
+      </section>
+      <div id="dimmed"></div>
+      <div id="tel_popup">
+        <a class="close">
+          <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.86018 16.829L16.3455 8.34375" stroke="#cccccc" stroke-width="1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M16.2431 16.7275L7.75781 8.24219" stroke="#cccccc" stroke-width="1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </a>
+        <div class="title">
+          <span>CONTACT</span>
+          <p>연락하기</p>
+        </div>
+        <div class="ctt">
+            <div class="ctt_title">
+              <p>신부측 <span>BRIDE</span></p>
+            </div>
+            <ul class="ctt_wrap">
+              <li>신부</li>
+              <li class="name">우주</li>
+              <li><a href="tel:010-6640-4857">전</a><a href="sms:010-6640-4857">문</a></li>
+            </ul>
+            <ul class="ctt_wrap">
+              <li>신부 아버지</li>
+              <li class="name">우병수</li>
+              <li><a href="tel:010-5122-1012">전</a><a href="sms:010-5122-1012">문</a></li>
+            </ul>
+            <ul class="ctt_wrap">
+              <li>신부 어머니</li>
+              <li class="name">김정애</li>
+              <li><a href="tel:010-4898-4857">전</a><a href="sms:010-4898-4857">문</a></li>
+            </ul>
+        </div>
+        <div class="ctt">
+          <div class="ctt_title">
+            <p>신랑측 <span>BRIDE</span></p>
+          </div>
+          <ul class="ctt_wrap">
+            <li>신랑</li>
+            <li class="name">김하람</li>
+            <li><a href="tel:010-4983-0290">전</a><a href="sms:010-4983-0290">문</a></li>
+          </ul>
+          <ul class="ctt_wrap">
+            <li>신랑 아버지</li>
+            <li class="name">김병철</li>
+            <li><a href="tel:010-4170-2005">전</a><a href="sms:010-4170-2005">문</a></li>
+          </ul>
+          <ul class="ctt_wrap">
+            <li>신랑 어머니</li>
+            <li class="name">이수영</li>
+            <li><a href="tel:010-3553-0297">전</a><a href="sms:010-3553-0297">문</a></li>
+          </ul>
+        </div>
+      </div>
+    
+    <div class="calander_warpper">
+      <p>2026.01.17</p>
+      <span>토요일 오후 6시 30분</span>
+        <table class="calander" id="calander">
+            <thead>
+                <tr>
+                    <th>일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                </tr>
+            </thead>
+            <tbody><tr><td></td><td></td><td></td><td></td><td class="cal_tr_td_1">1</td><td class="cal_tr_td_2">2</td><td class="cal_tr_td_3">3</td></tr><tr><td class="cal_tr_td_4">4</td><td class="cal_tr_td_5">5</td><td class="cal_tr_td_6">6</td><td class="cal_tr_td_7">7</td><td class="cal_tr_td_8">8</td><td class="cal_tr_td_9">9</td><td class="cal_tr_td_10">10</td></tr><tr><td class="cal_tr_td_11">11</td><td class="cal_tr_td_12">12</td><td class="cal_tr_td_13">13</td><td class="cal_tr_td_14">14</td><td class="cal_tr_td_15">15</td><td class="cal_tr_td_16">16</td><td><span class="dday">17</span></td></tr><tr><td class="cal_tr_td_18">18</td><td class="cal_tr_td_19">19</td><td class="cal_tr_td_20">20</td><td class="cal_tr_td_21">21</td><td class="cal_tr_td_22">22</td><td class="cal_tr_td_23">23</td><td class="cal_tr_td_24">24</span></td></tr><tr><td class="cal_tr_td_25">25</td><td class="cal_tr_td_26">26</td><td class="cal_tr_td_27">27</td><td class="cal_tr_td_28">28</td><td class="cal_tr_td_29">29</td><td class="cal_tr_td_30">30</td><td class="cal_tr_td_31">31</td></tr></tbody>
+        </table>
+    </div>
+    
+    
+    <section id="location">
+        <span>LOCATION</span>
+        <h2>오시는 길</h2>
+        <div class="location_txt">
+          <p>메리빌리아, 셀레스메리홀</p>
+          <p class="adress">인천 연수구 송도과학로16번길 33-1 <br>트리플스트리트 A동</p>
+          <span>Tel. 032-864-5500</span>
+        </div>
+      <!-- <div id="map"></div> -->
+          <div id="daumRoughmapContainer1763964889649" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+          <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+          <!-- 3. 실행 스크립트 -->
+          <script charset="UTF-8">
+            new daum.roughmap.Lander({
+              "timestamp" : "1763964889649",
+              "key" : "cqbvna626qu",
+              "mapWidth" : "400",
+              "mapHeight" : "200"
+            }).render();
+          </script>
+
+
+      <div class="navi_wrap">
+        <div class="navigation">
+          <h4>네비게이션</h4>
+          <ul>
+            <li><a href="https://map.naver.com/p/directions/-/14099669.4077341,4492334.3934003,%EB%A9%94%EB%A6%AC%EB%B9%8C%EB%A6%AC%EC%95%84,1775272720,PLACE_POI/-/transit?c=15.00,0,0,0,dh">네이버 지도</a></li>
+            <li><a href="https://tmap.life/41535689">티맵</a></li>
+            <li><a href="https://kko.kakao.com/kK0SYuQ4N1">카카오 맵</a></li>
+          </ul>
+          <p>**트러플스트리트 주차장 / 테크노파크 IT센터 주차장 무료</p>
+        </div>
+        <div class="subway">
+          <h4>지하철</h4>
+          <ul>
+            <li><span style="color:#759CCE;">●</span>인천1호선 테크노파크역 2번 출구</li>
+            <!-- <li style="font-size: 12px;"><br>현대 프리미엄아울렛을 지나 오시면 바로 전방 좌측입니다.</li> -->
+          </ul>
+        </div>
+        <div class="bus">
+          <h4>버스</h4>
+          <ul>
+            <li><span style="color:#0d347f;">●</span>간선버스: 9, 6-2, 16, 81, 35</li>
+            <li><span style="color:#3b9f37;">●</span>지선버스: 51-1, 91, 92</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+      <section id="gallery">
+          <span>GALLERY</span>
+          <h2>웨딩 갤러리</h2>
+        <div class="wrapper">
+          <div class="photobanner" id="banner">
+            <img class="first" src="img/gallery/gallery_20.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_22.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_02.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_03.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_04.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_05.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_06.jpg" alt="img" />
+            <img class="first" src="img/gallery/gallery_07.jpg" alt="img" />
+          </div>
+        </div>
+        <button id="more">사진 더보기</button>
+      </section>
+      
+      <div id="dimmed"></div>
+      <div id="gallery_popup" class="gallery_popup">
+        <a class="close">&times;</a>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/gallery/gallery_01.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_02.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_03.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_04.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_05.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_06.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_07.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_08.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_09.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_10.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_11.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_12.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_13.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_14.jpg" alt="wedding01"></div>
+            <div class="swiper-slide"><img src="img/gallery/gallery_15.jpg" alt="wedding01"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      
+      
+      <section id="chat">
+          <span>GUESTBOOK</span>
+          <h2>방명록</h2>
+          <p>
+            따뜻한 마음이 담근 축하의 글을 남겨주시면 <br>소중한 추억으로 간직하겠습니다.
+          </p>
+
+          <h2 class="chat_wrap">댓글 남기기</h2>
+            <div class="name_wrap">
+              <input id="name" placeholder="이름" />
+              <input id="pw" type="password" placeholder="비밀번호"/>
+            </div>
+            <textarea id="msg" placeholder="해주고 싶은 메세지를 이곳에 적어주세요"></textarea>
+            <button onclick="saveMsg()" id="call">내 방명록 남기기</button>
+            
+            <div id="list"></div>
+      
+      </section>
+      
+      <section id="info">
+          <span>INFORMATION</span>
+          <h2>예식정보 및 안내사항</h2>
+          <ul class="tabs">
+            <li class="active" rel="tab1">연회장</li>
+            <li rel="tab2">전세 버스</li>
+            <li rel="tab3">포토 부스</li>
+          </ul>
+
+          <div class="info_wrap">
+            <h3 class="d_active tab_drawer_heading" rel="tab1"></h3>
+            <div id="tab1" class="tab_content">
+                <div class="img_wrap">
+                  <img src="https://www.marryvilia.co.kr/PEG/gallery/gallery.17628263097323.png" alt="">
+                </div>
+                <p class="title">연회 & 식사 안내</p>
+                <p>식사는 결혼식 및 사진 촬영이 끝난 후 <br>웨딩홀 0층에서 뷔페식으로 진행됩니다.</p>
+                <p>부족함 없이 증기실 수 있도록 <br>한식을 비롯해 중식, 양식, 일식 등 <br>다양한 메뉴가 준비되어 있습니다.</p>
+            </div>
+            <h3 class="d_active tab_drawer_heading" rel="tab2"></h3>
+            <div id="tab2" class="tab_content">
+                <div class="img_wrap">
+                  <img src="https://www.marryvilia.co.kr/PEG/gallery/gallery.17628263097323.png" alt="">
+                </div>
+                <p class="title">전세버스</p>
+                <p>식사는 결혼식 및 사진 촬영이 끝난 후 <br>웨딩홀 0층에서 뷔페식으로 진행됩니다.</p>
+                <p>부족함 없이 증기실 수 있도록 <br>한식을 비롯해 중식, 양식, 일식 등 <br>다양한 메뉴가 준비되어 있습니다.</p>
+            </div>
+            <h3 class="d_active tab_drawer_heading" rel="tab3"></h3>
+            <div id="tab3" class="tab_content">
+                <div class="img_wrap">
+                  <img src="https://www.marryvilia.co.kr/PEG/gallery/gallery.17628263097323.png" alt="">
+                </div>
+                <p class="title">포토 부스</p>
+                <p>식사는 결혼식 및 사진 촬영이 끝난 후 <br>웨딩홀 0층에서 뷔페식으로 진행됩니다.</p>
+                <p>부족함 없이 증기실 수 있도록 <br>한식을 비롯해 중식, 양식, 일식 등 <br>다양한 메뉴가 준비되어 있습니다.</p>
+            </div>
+          </div>
+      </section>
+
+      <section id="flower">
+        <span>FLOWER</span>
+        <!-- <div><img src="img/blossom.png" alt=""></div> -->
+        <h2>화환은 정중히 사양합니다.</h2>
+        <p>축하해 주시는 마음만 감사히 받겠습니다.</p>
+      </section>
+      
+      <section id="account">
+          <span>ACCOUNT</span>
+          <h2>마음 전하실 곳</h2>
+          <p>참석이 어려우신 분들을 위해<br>
+            계좌번호를 기재하였습니다<br>
+            너그러운 마음으로 양해 부탁드립니다.
+          </p>
+      
+          <div class="tabs">
+            <ul class="tabs-nav">
+              <li><a href="#tab-1">신부측</a></li>
+              <li><a href="#tab-2">신랑측</a></li>
+            </ul>
+            <div class="tabs-stage">
+              <div id="tab-1">
+                <div class="tab_wrap">
+                  <div class="name_wrap">
+                    <p class="name">우주</p>
+                    <p>신부</p>
+                  </div>
+                  <p>카카오뱅크</p>
+                  <div class="account_wrap">
+                    <input type="text" class="copyTxt" value="3333-07-52-84646" disabled><img class="copy" src="img/copy.svg" alt="copy icon" onclick="copy(this)">
+                    <a href="https://link.kakaopay.com/__/JO3piiz"><img src="img/payment_icon_yellow_small.png" alt="kakaopay"></a>
+                  </div>
+                </div>
+                <div class="tab_wrap">
+                  <div class="name_wrap">
+                    <p class="name">우병수</p>
+                    <p>신부 아버지</p>
+                  </div>
+                  <p>국민은행</p>
+                  <div class="account_wrap">
+                    <input type="text" class="copyTxt" value="173901-04-055819" disabled><img class="copy" src="img/copy.svg" alt="copy icon" onclick="copy(this)">
+                    <a href="https://link.kakaopay.com/__/JO3piiz"><img src="img/payment_icon_yellow_small.png" alt="kakaopay"></a>
+                  </div>
+                </div>
+                <div class="tab_wrap">
+                  <div class="name_wrap">
+                    <p class="name">김정애</p>
+                    <p>신부 어머니</p>
+                  </div>
+                  <p>카카오뱅크</p>
+                  <div class="account_wrap">
+                    <input type="text" class="copyTxt" value="3333-06-62-39099" disabled><img class="copy" src="img/copy.svg" alt="copy icon" onclick="copy(this)">
+                    <a href="https://link.kakaopay.com/__/JO3piiz"><img src="img/payment_icon_yellow_small.png" alt="kakaopay"></a>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-2">
+                <div class="tab_wrap">
+                  <div class="name_wrap">
+                    <p class="name">김하람</p>
+                    <p>신랑</p>
+                  </div>
+                  <p>카카오뱅크</p>
+                  <div class="account_wrap">
+                    <input type="text" class="copyTxt" value="3333-15-2365260" disabled><img class="copy" src="img/copy.svg" alt="copy icon" onclick="copy(this)">
+                    <a href="https://link.kakaopay.com/__/JO3piiz"><img src="img/payment_icon_yellow_small.png" alt="kakaopay"></a>
+                  </div>
+                </div>
+                <div class="tab_wrap">
+                  <div class="name_wrap">
+                    <p class="name">김병철</p>
+                    <p>신랑 아버지</p>
+                  </div>
+                  <p>농협은행</p>
+                  <div class="account_wrap">
+                    <input type="text" class="copyTxt" value="721073-52-133338" disabled><img class="copy" src="img/copy.svg" alt="copy icon" onclick="copy(this)">
+                    <a href="https://link.kakaopay.com/__/JO3piiz"><img src="img/payment_icon_yellow_small.png" alt="kakaopay"></a>
+                  </div>
+                </div>
+                <div class="tab_wrap">
+                  <div class="name_wrap">
+                    <p class="name">이수영</p>
+                    <p>신랑 어머니</p>
+                  </div>
+                  <p>농협은행</p>
+                  <div class="account_wrap">
+                    <input type="text" class="copyTxt" value="721072-52-095419" disabled><img class="copy" src="img/copy.svg" alt="copy icon" onclick="copy(this)">
+                    <a href="https://link.kakaopay.com/__/JO3piiz"><img src="img/payment_icon_yellow_small.png" alt="kakaopay"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+      
+      <section id="contact">
+        <span>Contact</span>
+        <h2>연락하기</h2>
+        <p>둘이 함께 맞이하는 6번째 봄, <br>
+          저희 두 사람 결혼합니다. <br>
+          앞으로 맞이할 저희의 봄날을 축복해주세요.</p>
+
+        <div class="profile_wrap"> 
+          <div class="img"><img src="img/haram_pro.png" alt=""></div>
+          <img src="img/heart_icon.png" alt="">
+          <div class="img"><img src="img/joo_pro.png" alt=""></div>
+        </div>
+
+        <div class="contact_wrap">
+          <div class="contact_con">
+            <p>신랑</p>
+            <p>김하람</p>
+            <div class="call_wrap">
+              <a href="tel:010-4983-0290"><img src="img/call_icon.png" alt=""></a>
+              <a href="sms:010-4983-0290"><img src="img/msg_icon.png" alt=""></a>
+            </div>
+          </div><div class="contact_con">
+            <p>신부</p>
+            <p>우주</p>
+            <div class="call_wrap">
+              <a href="tel:010-6640-4857"><img src="img/call_icon.png" alt=""></a>
+              <a href="sms:010-6640-4857"><img src="img/msg_icon.png" alt=""></a>
+            </div>
+          </div><div class="contact_con">
+            <p>신랑 아버지</p>
+            <p>김병철</p>
+            <div class="call_wrap">
+              <a href="tel:010-4170-2005"><img src="img/call_icon.png" alt=""></a>
+              <a href="sms:010-4170-2005"><img src="img/msg_icon.png" alt=""></a>
+            </div>
+          </div><div class="contact_con">
+            <p>신부 아버지</p>
+            <p>우병수</p>
+            <div class="call_wrap">
+              <a href="tel:010-5122-1012"><img src="img/call_icon.png" alt=""></a>
+              <a href="sms:010-5122-1012"><img src="img/msg_icon.png" alt=""></a>
+            </div>
+          </div><div class="contact_con">
+            <p>신랑 어머니</p>
+            <p>이수영</p>
+            <div class="call_wrap">
+              <a href="tel:010-3553-0297"><img src="img/call_icon.png" alt=""></a>
+              <a href="sms:010-3553-0297"><img src="img/msg_icon.png" alt=""></a>
+            </div>
+          </div><div class="contact_con">
+            <p>신부 어머니</p>
+            <p>김정애</p>
+            <div class="call_wrap">
+              <a href="tel:010-4898-4857"><img src="img/call_icon.png" alt=""></a>
+              <a href="sms:010-4898-4857"><img src="img/msg_icon.png" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="Photo">
+        <span>Photo</span>
+        <h2>사진 업로드</h2>
+        <p>함께 쌓아온 추억의 순간들,<br>
+          이제는 새로운 시작으로 이어갑니다. <br>
+          소중한 사진을 올려 두 사람의 이야기를 함께 채워주세요.</p>
+      
+          <a href="https://www.dropbox.com/request/SOuE63dXytObyrtdG1nz">결혼식 사진 올리기</a>
+      
+      
+      </section>
+
+
+
+      <div class="footer_img">
+        <img src="img/kv_img.png" alt="">
+      </div>
+    </div>
+
+    <script defer src="script.js"></script>
+
+</body>
+<Script>
+   const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target); // 한 번만 실행
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+
+
+
+  function copy(btn) {
+  const input = btn.previousElementSibling; // 버튼 바로 앞 input 선택
+  input.select();
+  input.setSelectionRange(0, 99999);
+
+  navigator.clipboard.writeText(input.value);
+  alert("복사되었습니다.");
+}
+    
+  // KV parallax
+  const img = document.querySelector(".kv .img");
+  const kv = document.querySelector(".kv");
+
+  function handleParallax() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const kvTop = kv.offsetTop;
+    const offset = (scrollY - kvTop) * 0.3;
+    img.style.transform = `translateY(${offset}px)`;
+    requestAnimationFrame(handleParallax);
+  }
+  requestAnimationFrame(handleParallax);
+
+  // gallery automove
+  const banner = document.getElementById('banner');
+  const totalWidth = banner.scrollWidth / 2; // 원본 이미지 세트 너비
+  let currentX = 0;
+  const speed = 0.5; // 움직임 속도 (수치 조절)
+
+  function animate() {
+    currentX -= speed;
+    if (Math.abs(currentX) >= totalWidth) {
+      currentX = 0; // 원위치로 초기화
+    }
+    banner.style.transform = `translateX(${currentX}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  $('.tabs-stage>div').hide();
+  $('.tabs-stage div:first').show();
+  $('.tabs-nav li:first').addClass('tab-active');
+
+  // Change tab class and display content
+  $('.tabs-nav a').on('click', function(event){
+    event.preventDefault();
+    $('.tabs-nav li').removeClass('tab-active');
+    $(this).parent().addClass('tab-active');
+    $('.tabs-stage>div').hide();
+    $($(this).attr('href')).show();
+  });
+
+  var swiper = new Swiper(".mySwiper", {
+    effect: "cards",
+    grabCursor: true,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    observer: true,          // DOM 변경 감지
+    observeParents: true,
+  });
+
+ // tabbed content
+    $(".tab_content").hide();
+    $(".tab_content:first").show();
+
+  /* if in tab mode */
+    $("ul.tabs li").click(function() {
+		
+      $(".tab_content").hide();
+      var activeTab = $(this).attr("rel"); 
+      $("#"+activeTab).fadeIn();		
+		
+      $("ul.tabs li").removeClass("active");
+      $(this).addClass("active");
+
+	  $(".tab_drawer_heading").removeClass("d_active");
+	  $(".tab_drawer_heading[rel^='"+activeTab+"']").addClass("d_active");
+	  
+    });
+	/* if in drawer mode */
+	$(".tab_drawer_heading").click(function() {
+      
+      $(".tab_content").hide();
+      var d_activeTab = $(this).attr("rel"); 
+      $("#"+d_activeTab).fadeIn();
+	  
+	  $(".tab_drawer_heading").removeClass("d_active");
+      $(this).addClass("d_active");
+	  
+	  $("ul.tabs li").removeClass("active");
+	  $("ul.tabs li[rel^='"+d_activeTab+"']").addClass("active");
+    });
+	
+	
+	/* Extra class "tab_last" 
+	   to add border to right side
+	   of last tab */
+	$('ul.tabs li').last().addClass("tab_last");
+	
+</Script>
+</html>
+
+
